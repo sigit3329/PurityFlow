@@ -1,0 +1,33 @@
+Kebutuhan :
+1. Xampp
+2. VsCode
+3. Php 7.4
+4. Komposer
+
+Cara Running :
+1. Pindahkan Folder smtds kedalam folder C:\xampp\htdocs\ (Sesuaikan peletakan folder xampp).
+2. Jangan ubah nama file yaitu smtds karena mempengaruhi Api yang dikirim dari Alat.
+3. Jalankan xampp dengan php 7.4 
+4. buat database di phpmyadmin dengan nama tdsdash
+5. jalankan code berikut di terminal vscode
+	a. php artisan key:generate
+	b. php artisan migrate
+	c. php artisan serve --host 192.168.0.2 --port 8000 (php artisan serve berguna untuk menjalankan laravel,
+		sesuaikan ip pada laptop namun port tetap)
+6. klik localhost setelah menjalankan serve
+7. Website sudah running
+
+Peringatan !!
+1. Jika php artisan serve atau php lain tidak bisa dijalankan maka jalankan code berikut
+
+ composer install
+
+Cara Koneksi :
+1. Buka folder tds_basic kemudian buka file arduinonya
+2. Ubah nama wifi dan password sesuai keinginan
+3. Ubah ip yang didapat dari host
+4. Hospot hanya bisa digunakan dengan frequensi 2.4
+5. Upload code ke alat dan kemudia restart alat
+
+Jika sudah semua dilakukan pastikan website dan xampp aktif untuk menerima data kemudian nyalakan alat,
+lihat apakah value sudah masuk ke database jika sudah refresh web maka value akan tampil.

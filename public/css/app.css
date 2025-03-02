@@ -1,0 +1,140 @@
+/* public/css/app.css */
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.jumbotron {
+    background-color: #53f812; 
+    color: #000000; /* Warna teks */
+    padding: 4rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    margin-bottom: 2rem; /* Jarak bawah */
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 20px; /* Jarak antar elemen */
+}
+
+.dashboard-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan shadow */
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem; /* Jarak bawah */
+}
+
+.table thead {
+    background-color: #343a40;
+    color: white;
+}
+
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* CSS untuk warna teks kualitas air */
+.text-terbaik {
+    color: green;
+}
+
+.text-baik {
+    color: blue;
+}
+
+.text-cukup {
+    color: orange;
+}
+
+.text-buruk {
+    color: yellow;
+}
+
+.text-warning {
+    color: red;
+}
+
+.background-terbaik {
+    background-color: green;
+}
+
+.background-baik {
+    background-color: blue;
+}
+
+.background-cukup {
+    background-color: orange;
+}
+
+.background-buruk {
+    background-color: yellow;
+}
+
+.background-warning {
+    background-color: red;
+}
+
+/* Media Queries untuk tampilan mobile */
+@media (max-width: 600px) {
+    .jumbotron {
+        padding: 2rem;
+        font-size: 1rem;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr; /* 1 kolom pada tampilan mobile */
+        gap: 10px; /* Jarak antar elemen */
+    }
+
+    .dashboard-item {
+        padding: 10px;
+        font-size: 0.875rem;
+    }
+
+    .table thead {
+        font-size: 0.875rem;
+    }
+
+    .table tbody {
+        font-size: 0.75rem;
+    }
+}
+
+<style>
+    .background-terbaik { background-color: green; }
+    .background-baik { background-color: lightgreen; }
+    .background-cukup { background-color: yellow; }
+    .background-buruk { background-color: orange; }
+    .background-warning { background-color: red; }
+
+    .text-terbaik { color: green; }
+    .text-baik { color: lightgreen; }
+    .text-cukup { color: yellow; }
+    .text-buruk { color: orange; }
+    .text-warning { color: red; }
+
+    @media (max-width: 768px) {
+        .dashboard-item {
+            margin-bottom: 20px;
+        }
+    }
+</style>
