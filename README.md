@@ -134,6 +134,3 @@ Kontribusi sangat terbuka! Silakan buat pull request atau buka issue jika Anda p
 ## ❤️ Terima Kasih
 
 Terima kasih telah menggunakan dan mengembangkan sistem monitoring kualitas air yang lebih baik. Mari jaga kesehatan dan air bersih bersama!
-```
-
----
