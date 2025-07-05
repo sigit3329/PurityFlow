@@ -126,8 +126,8 @@ Kontribusi sangat terbuka! Silakan buat pull request atau buka issue jika Anda p
 ## 👤 Author
 
 **Muhammad Sigit Nugroho**  
-📧 [Email Anda]  
-🔗 [LinkedIn atau Website opsional]  
+📧 [muhammadsigitnugroho@students.amikom.ac.id]  
+🔗 [www.linkedin.com/in/muhammad-sigit-nugroho]  
 
 ---
 
