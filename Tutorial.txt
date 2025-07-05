@@ -1,0 +1,160 @@
+# PurityFlow 💧 - Sistem Monitoring Kualitas Air Berbasis IoT
+
+**PurityFlow** adalah sistem IoT berbasis ESP32 yang dirancang untuk memantau kualitas air secara real-time pada depot isi ulang air mineral. Sistem ini mengukur nilai TDS (Total Dissolved Solids) untuk memastikan air layak dikonsumsi, serta menyediakan fitur pemantauan melalui web server dan pembaruan firmware Over-The-Air (OTA).
+
+---
+
+## 🧰 Fitur Utama
+
+- 🔬 **Monitoring TDS**: Menggunakan sensor TDS untuk membaca kualitas air.
+- 📶 **Web Server ESP32**: Tampilkan data sensor langsung melalui jaringan WiFi lokal.
+- 🚨 **Alarm Otomatis**: Buzzer akan berbunyi jika nilai TDS melebihi ambang batas.
+- 🌐 **OTA Update**: Pembaruan firmware ESP32 langsung lewat jaringan (tanpa kabel).
+- 📝 **EEPROM Support**: Menyimpan konfigurasi secara permanen (seperti WiFi dan batas TDS).
+- 📊 **Dashboard Web Laravel**: Menyimpan dan menampilkan data TDS dari alat secara real-time.
+
+---
+
+## 📷 Tampilan Sistem
+
+> (Tambahkan screenshot web dashboard dan foto alat jika tersedia)
+
+---
+
+## 🧱 Arsitektur Sistem
+
+```
+
++--------------------+
+\|    Sensor TDS      |───> Mengukur kualitas air
++--------------------+
+│
+▼
++--------------------+
+\|      ESP32         |───> Proses data, tampilkan via Web UI, kirim ke Laravel API
++--------------------+
+│
+OTA Firmware & WiFi
+│
+▼
++--------------------+        +--------------------------+
+\|  Web Server ESP32  |───>──> |   Laravel Dashboard API   |
++--------------------+        +--------------------------+
+│
+▼
++--------------------+
+\|   Database MySQL   |
++--------------------+
+
+```
+
+---
+
+## ⚙️ Kebutuhan Sistem
+
+Pastikan perangkat Anda telah memiliki:
+
+- [XAMPP](https://www.apachefriends.org/index.html)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- PHP versi 7.4
+- [Composer](https://getcomposer.org/)
+
+---
+
+## 🚀 Instalasi Aplikasi Web Laravel
+
+1. **Pindahkan folder** `smtds` ke dalam direktori:
+```
+
+C:\xampp\htdocs\\
+
+```
+> ⚠️ *Jangan ubah nama folder `smtds`, karena API endpoint bergantung pada nama ini.*
+
+2. **Jalankan XAMPP** dan pastikan PHP versi **7.4** aktif.
+
+3. **Buat database** di `phpMyAdmin` dengan nama:
+```
+
+tdsdash
+
+````
+
+4. **Buka terminal** di dalam folder `smtds` melalui VS Code, lalu jalankan perintah berikut:
+```bash
+composer install           # Hanya jika dependensi belum terpasang
+php artisan key:generate
+php artisan migrate
+php artisan serve --host 172.17.51.216 --port 8000
+````
+
+> 💡 Ganti `172.17.51.216` dengan IP lokal laptop Anda. Port 8000 disarankan tetap.
+
+5. **Akses aplikasi** melalui browser:
+
+   ```
+   http://localhost:8000
+   ```
+
+6. Jika semua berhasil, dashboard akan muncul dan siap menerima data dari alat.
+
+---
+
+## ⚠️ Catatan Tambahan
+
+Jika `php artisan` atau perintah lainnya gagal dijalankan, pastikan dependensi Laravel telah terpasang:
+
+```bash
+composer install
+```
+
+---
+
+## 🔌 Cara Koneksi dengan Alat (ESP32)
+
+1. Buka folder `tds_basic` dan edit file `.ino` di Arduino IDE.
+2. Ubah nilai berikut:
+
+   * **SSID dan password WiFi**
+   * **Alamat IP server Laravel** (sesuai `--host` di langkah sebelumnya)
+3. Pastikan WiFi/hotspot menggunakan frekuensi **2.4 GHz**.
+4. Upload program ke ESP32.
+5. Restart alat.
+
+---
+
+## ✅ Verifikasi Koneksi
+
+1. Pastikan:
+
+   * XAMPP aktif
+   * Laravel web server aktif (`php artisan serve`)
+2. Nyalakan alat ESP32.
+3. Cek apakah data TDS masuk ke database `tdsdash`.
+4. Buka browser dan refresh halaman web untuk melihat data tampil secara realtime.
+
+---
+
+## 📄 Lisensi
+
+Proyek ini berada di bawah lisensi [MIT License](LICENSE).
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi sangat terbuka! Silakan buka *issue* atau buat *pull request* untuk membantu pengembangan proyek ini lebih lanjut.
+
+---
+
+## 👤 Author
+
+**Muhammad Sigit Nugroho**
+📧 \[Email Anda]
+🔗 \[LinkedIn / Website jika ada]
+
+---
+
+## ❤️ Terima Kasih
+
+Terima kasih telah mendukung pengembangan sistem monitoring kualitas air yang lebih cerdas dan berkelanjutan.
